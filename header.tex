@@ -1,0 +1,106 @@
+\documentclass[fontsize=6pt, a4paper]{scrartcl}
+
+% Margins
+\usepackage[landscape=true, left=0.5cm, right=0.5cm, top=0.5cm, bottom=0.5cm]{geometry}
+
+% Multi-Column document
+\usepackage{multicol}
+
+% Sample Text
+\usepackage{blindtext}
+
+% Helvetica Font
+\usepackage{helvet}
+\renewcommand*{\familydefault}{\sfdefault}
+
+% Math Symbols
+\usepackage{amsfonts}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{stmaryrd}
+
+% Tables
+\usepackage{array}
+\usepackage{tabularx}
+
+% Colors
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+
+% Float
+\usepackage{float}
+
+% Lists
+\usepackage{enumitem}
+
+% Text Boxes
+\usepackage[most]{tcolorbox}
+\newtcolorbox{topicbox}[1][]{
+    sharp corners,
+    coltext = black,
+    boxrule = 0.25mm,
+    width = \columnwidth,
+    left = 0mm,
+    right = 0mm,
+    bottom = 0mm,
+    top = 0mm,
+    boxsep = 1mm,
+    colback = white,
+    adjusted title = #1,
+    colframe = black!20,
+    enhanced,
+    fonttitle = \bfseries\small,
+    coltitle = black,
+    arc = 1mm
+}
+
+% Custom Colors
+\definecolor{green(pigment)}{rgb}{0.0, 0.65, 0.31}
+
+% highlight text
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{cyan}{#1}}
+\newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+\newcommand{\green}[1]{\textcolor{green(pigment)}{#1}}
+\newcommand{\brown}[1]{\textcolor{Mahogany}{#1}}
+\newcommand{\dkblue}[1]{\textcolor{blue}{#1}}
+
+% Paragraphs use less space
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus0pt minus0pt}
+
+% make lists more compact
+\setlist[itemize]{noitemsep, nolistsep, leftmargin=5mm}
+\setlist[enumerate]{noitemsep, nolistsep, leftmargin=5mm}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+% Horizontal Divider
+\newcommand{\divider}{
+    \vspace{1mm}
+    \hrule
+    \vspace{1mm}
+}
+
+% Term
+\newcommand{\term}[1]{\magenta{\textbf{#1}}}
+
+% Make space above section smaller
+\RedeclareSectionCommand[
+  afterindent = false,
+  beforeskip = 0.5\baselineskip,
+  afterskip = 0.5\baselineskip
+]{section}
+
+% make space between columns smaller
+\setlength{\tabcolsep}{2pt}
+
+% command for a smaller centering
+\renewenvironment{center}{\parskip=0pt\par\nopagebreak\centering}{\par\noindent\ignorespacesafterend}
+
+% if-then-else command
+\newcommand{\ifthenelse}[3]{
+    \ensuremath{
+        \dkblue{(} #1 \dkblue{)} \ \dkblue{?} \ #2 \ \dkblue{:} \ #3
+    }
+}
